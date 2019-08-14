@@ -5,12 +5,12 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace Spryker\Glue\CategoriesRestApi\Plugin\UrlIdentifiersRestApi;
+namespace Spryker\Glue\CategoriesRestApi\Plugin\UrlsRestApi;
 
 use Generated\Shared\Transfer\ResourceIdentifierTransfer;
 use Generated\Shared\Transfer\UrlStorageTransfer;
 use Spryker\Glue\Kernel\AbstractPlugin;
-use Spryker\Glue\UrlIdentifiersRestApiExtension\Dependency\Plugin\ResourceIdentifierProviderPluginInterface;
+use Spryker\Glue\UrlsRestApiExtension\Dependency\Plugin\ResourceIdentifierProviderPluginInterface;
 
 /**
  * @method \Spryker\Glue\CategoriesRestApi\CategoriesRestApiFactory getFactory()
