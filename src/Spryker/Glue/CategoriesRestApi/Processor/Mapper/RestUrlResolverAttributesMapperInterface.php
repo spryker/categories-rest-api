@@ -12,12 +12,6 @@ use Generated\Shared\Transfer\UrlStorageTransfer;
 
 interface RestUrlResolverAttributesMapperInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\UrlStorageTransfer $urlStorageTransfer
-     * @param \Generated\Shared\Transfer\RestUrlResolverAttributesTransfer $restUrlResolverAttributesTransfer
-     *
-     * @return \Generated\Shared\Transfer\RestUrlResolverAttributesTransfer
-     */
     public function mapUrlStorageTransferToRestUrlResolverAttributesTransfer(
         UrlStorageTransfer $urlStorageTransfer,
         RestUrlResolverAttributesTransfer $restUrlResolverAttributesTransfer

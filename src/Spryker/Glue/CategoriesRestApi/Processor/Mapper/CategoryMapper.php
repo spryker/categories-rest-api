@@ -35,11 +35,6 @@ class CategoryMapper implements CategoryMapperInterface
         return (new RestCategoryTreesTransfer())->setCategoryNodesStorage($rootCategories);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CategoryNodeStorageTransfer $categoryNodeStorageTransfer
-     *
-     * @return \Generated\Shared\Transfer\RestCategoryNodesAttributesTransfer
-     */
     public function mapCategoryNodeToRestCategoryNodesTransfer(CategoryNodeStorageTransfer $categoryNodeStorageTransfer): RestCategoryNodesAttributesTransfer
     {
         return (new RestCategoryNodesAttributesTransfer())

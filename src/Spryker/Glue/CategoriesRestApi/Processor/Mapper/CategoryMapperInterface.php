@@ -20,10 +20,5 @@ interface CategoryMapperInterface
      */
     public function mapCategoryTreeToRestCategoryTreesTransfer(array $categoryNodeStorageTransfers): RestCategoryTreesTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\CategoryNodeStorageTransfer $categoryNodeStorageTransfer
-     *
-     * @return \Generated\Shared\Transfer\RestCategoryNodesAttributesTransfer
-     */
     public function mapCategoryNodeToRestCategoryNodesTransfer(CategoryNodeStorageTransfer $categoryNodeStorageTransfer): RestCategoryNodesAttributesTransfer;
 }

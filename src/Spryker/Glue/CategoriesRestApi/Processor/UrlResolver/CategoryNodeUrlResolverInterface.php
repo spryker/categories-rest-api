@@ -12,10 +12,5 @@ use Generated\Shared\Transfer\UrlStorageTransfer;
 
 interface CategoryNodeUrlResolverInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\UrlStorageTransfer $urlStorageTransfer
-     *
-     * @return \Generated\Shared\Transfer\RestUrlResolverAttributesTransfer|null
-     */
     public function resolveCategoryNodeUrl(UrlStorageTransfer $urlStorageTransfer): ?RestUrlResolverAttributesTransfer;
 }

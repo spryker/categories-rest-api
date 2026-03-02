@@ -30,11 +30,6 @@ class CategoryNodeUrlResolver implements CategoryNodeUrlResolverInterface
      */
     protected $restUrlResolverAttributesMapper;
 
-    /**
-     * @param \Spryker\Glue\CategoriesRestApi\Dependency\Client\CategoriesRestApiToCategoryStorageClientInterface $categoryStorageClient
-     * @param \Spryker\Glue\CategoriesRestApi\Dependency\Client\CategoriesRestApiToStoreClientInterface $storeClient
-     * @param \Spryker\Glue\CategoriesRestApi\Processor\Mapper\RestUrlResolverAttributesMapperInterface $restUrlResolverAttributesMapper
-     */
     public function __construct(
         CategoriesRestApiToCategoryStorageClientInterface $categoryStorageClient,
         CategoriesRestApiToStoreClientInterface $storeClient,
@@ -45,11 +40,6 @@ class CategoryNodeUrlResolver implements CategoryNodeUrlResolverInterface
         $this->restUrlResolverAttributesMapper = $restUrlResolverAttributesMapper;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\UrlStorageTransfer $urlStorageTransfer
-     *
-     * @return \Generated\Shared\Transfer\RestUrlResolverAttributesTransfer|null
-     */
     public function resolveCategoryNodeUrl(UrlStorageTransfer $urlStorageTransfer): ?RestUrlResolverAttributesTransfer
     {
         $localeName = $this->findLocaleName($urlStorageTransfer);
@@ -73,11 +63,6 @@ class CategoryNodeUrlResolver implements CategoryNodeUrlResolverInterface
         );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\UrlStorageTransfer $urlStorageTransfer
-     *
-     * @return string|null
-     */
     protected function findLocaleName(UrlStorageTransfer $urlStorageTransfer): ?string
     {
         if ($urlStorageTransfer->getLocaleName()) {

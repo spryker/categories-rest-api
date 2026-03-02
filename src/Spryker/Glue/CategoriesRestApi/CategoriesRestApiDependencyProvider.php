@@ -27,11 +27,6 @@ class CategoriesRestApiDependencyProvider extends AbstractBundleDependencyProvid
      */
     public const CLIENT_STORE = 'CLIENT_STORE';
 
-    /**
-     * @param \Spryker\Glue\Kernel\Container $container
-     *
-     * @return \Spryker\Glue\Kernel\Container
-     */
     public function provideDependencies(Container $container): Container
     {
         $container = parent::provideDependencies($container);
@@ -42,11 +37,6 @@ class CategoriesRestApiDependencyProvider extends AbstractBundleDependencyProvid
         return $container;
     }
 
-    /**
-     * @param \Spryker\Glue\Kernel\Container $container
-     *
-     * @return \Spryker\Glue\Kernel\Container
-     */
     protected function addCategoryStorageClient(Container $container): Container
     {
         $container->set(static::CLIENT_CATEGORY_STORAGE, function (Container $container) {
@@ -58,11 +48,6 @@ class CategoriesRestApiDependencyProvider extends AbstractBundleDependencyProvid
         return $container;
     }
 
-    /**
-     * @param \Spryker\Glue\Kernel\Container $container
-     *
-     * @return \Spryker\Glue\Kernel\Container
-     */
     protected function addStoreClient(Container $container): Container
     {
         $container->set(static::CLIENT_STORE, function (Container $container) {

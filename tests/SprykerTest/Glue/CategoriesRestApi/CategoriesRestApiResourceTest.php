@@ -57,9 +57,6 @@ class CategoriesRestApiResourceTest extends Unit
      */
     protected CategoriesRestApiResourceInterface $categoriesRestApiResource;
 
-    /**
-     * @return void
-     */
     protected function _before(): void
     {
         parent::_before();
@@ -70,9 +67,6 @@ class CategoriesRestApiResourceTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -81,9 +75,6 @@ class CategoriesRestApiResourceTest extends Unit
         $this->tester->setDependency(CategoriesRestApiDependencyProvider::CLIENT_STORE, $this->getStoreClientMock());
     }
 
-    /**
-     * @return void
-     */
     public function testFindCategoryNodeByIdShouldReturnRestResourceOfTypeCategoryNodes(): void
     {
         // Arrange
@@ -100,9 +91,6 @@ class CategoriesRestApiResourceTest extends Unit
         $this->assertSame(static::RESOURCE_CATEGORY_NODES, $restResource->getType());
     }
 
-    /**
-     * @return void
-     */
     public function testFindCategoryNodeByIdShouldReturnEmptyRestResource(): void
     {
         // Arrange
@@ -116,9 +104,6 @@ class CategoriesRestApiResourceTest extends Unit
         $this->assertNull($restResource);
     }
 
-    /**
-     * @return void
-     */
     public function testFindCategoryNodeByIdsShouldReturnTwoFoundCategoryNodesIndexedByNodeId(): void
     {
         // Arrange
@@ -137,9 +122,6 @@ class CategoriesRestApiResourceTest extends Unit
         $this->assertArrayHasKey(3, $restResource);
     }
 
-    /**
-     * @return void
-     */
     public function testFindCategoryNodeByIdsShouldReturnEmptyRestResource(): void
     {
         // Arrange
@@ -153,9 +135,6 @@ class CategoriesRestApiResourceTest extends Unit
         $this->assertCount(0, $restResource);
     }
 
-    /**
-     * @return \Spryker\Glue\CategoriesRestApi\Dependency\Client\CategoriesRestApiToStoreClientInterface
-     */
     protected function getStoreClientMock(): CategoriesRestApiToStoreClientInterface
     {
         $storeTransfer = (new StoreTransfer())->setName(static::STORE_NAME);
@@ -165,9 +144,6 @@ class CategoriesRestApiResourceTest extends Unit
         return $storeClientMock;
     }
 
-    /**
-     * @return \Spryker\Glue\CategoriesRestApi\Dependency\Client\CategoriesRestApiToCategoryStorageClientInterface
-     */
     protected function getCategoryStorageClientMock(): CategoriesRestApiToCategoryStorageClientInterface
     {
         $categoryStorageClientMock = $this->getMockBuilder(CategoriesRestApiToCategoryStorageClientInterface::class)->getMock();

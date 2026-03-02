@@ -60,9 +60,6 @@ class CategoryNodeRestUrlResolverAttributesTransferProviderPluginTest extends Un
      */
     protected CategoriesRestApiTester $tester;
 
-    /**
-     * @return void
-     */
     public function testProvideRestUrlResolverAttributesTransferByUrlStorageTransferShouldReturnTransferWhenCategoryAssignedToTheStore(): void
     {
         // Arrange
@@ -82,9 +79,6 @@ class CategoryNodeRestUrlResolverAttributesTransferProviderPluginTest extends Un
         $this->assertSame(static::ID_RESOURCE_CATEGORYNODE, (int)$restUrlResolverAttributesTransfer->getEntityId());
     }
 
-    /**
-     * @return void
-     */
     public function testProvideRestUrlResolverAttributesTransferByUrlStorageTransferShouldReturnTransferWhenCategoryAssignedToTheStoreAndStoreNameProvidedInLocales(): void
     {
         // Arrange
@@ -107,9 +101,6 @@ class CategoryNodeRestUrlResolverAttributesTransferProviderPluginTest extends Un
         $this->assertSame(static::ID_RESOURCE_CATEGORYNODE, (int)$restUrlResolverAttributesTransfer->getEntityId());
     }
 
-    /**
-     * @return void
-     */
     public function testProvideRestUrlResolverAttributesTransferByUrlStorageTransferShouldReturnNullWhenCategoryNotAssignedToTheStore(): void
     {
         // Assert
@@ -128,9 +119,6 @@ class CategoryNodeRestUrlResolverAttributesTransferProviderPluginTest extends Un
         $this->assertNull($restUrlResolverAttributesTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testProvideRestUrlResolverAttributesTransferByUrlStorageTransferShouldReturnExceptionWhenRequiredTransferPropertyIsMissing(): void
     {
         // Assert
@@ -147,11 +135,6 @@ class CategoryNodeRestUrlResolverAttributesTransferProviderPluginTest extends Un
         $restUrlResolverAttributesTransfer = $categoryNodeRestUrlResolverAttributesTransferProviderPlugin->provideRestUrlResolverAttributesTransferByUrlStorageTransfer($urlStorageTransfer);
     }
 
-    /**
-     * @param int|null $idCategory
-     *
-     * @return void
-     */
     protected function mockCategoryStorageClient(?int $idCategory = null): void
     {
         $categoryStorageClientMock = $this->createMock(
@@ -165,11 +148,6 @@ class CategoryNodeRestUrlResolverAttributesTransferProviderPluginTest extends Un
         $this->tester->mockFactoryMethod('getCategoryStorageClient', $categoryStorageClientMock);
     }
 
-    /**
-     * @param string $storeName
-     *
-     * @return void
-     */
     protected function mockStoreClient(string $storeName): void
     {
         $storeClientMock = $this->createMock(
@@ -183,13 +161,6 @@ class CategoryNodeRestUrlResolverAttributesTransferProviderPluginTest extends Un
         $this->tester->mockFactoryMethod('getStoreClient', $storeClientMock);
     }
 
-    /**
-     * @param int $idLocale
-     * @param int|null $idResourceCategorynode
-     * @param string|null $localeName
-     *
-     * @return \Generated\Shared\Transfer\UrlStorageTransfer
-     */
     protected function createUrlStorageTransfer(int $idLocale, ?int $idResourceCategorynode = null, ?string $localeName = null): UrlStorageTransfer
     {
         return (new UrlStorageTransfer())

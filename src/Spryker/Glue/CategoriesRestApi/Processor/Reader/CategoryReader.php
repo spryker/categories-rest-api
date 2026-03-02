@@ -41,12 +41,6 @@ class CategoryReader implements CategoryReaderInterface
      */
     protected CategoriesRestApiToStoreClientInterface $storeClient;
 
-    /**
-     * @param \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResourceBuilderInterface $restResourceBuilder
-     * @param \Spryker\Glue\CategoriesRestApi\Dependency\Client\CategoriesRestApiToCategoryStorageClientInterface $categoryStorageClient
-     * @param \Spryker\Glue\CategoriesRestApi\Processor\Mapper\CategoryMapperInterface $categoryMapper
-     * @param \Spryker\Glue\CategoriesRestApi\Dependency\Client\CategoriesRestApiToStoreClientInterface $storeClient
-     */
     public function __construct(
         RestResourceBuilderInterface $restResourceBuilder,
         CategoriesRestApiToCategoryStorageClientInterface $categoryStorageClient,
@@ -59,11 +53,6 @@ class CategoryReader implements CategoryReaderInterface
         $this->storeClient = $storeClient;
     }
 
-    /**
-     * @param string $locale
-     *
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
-     */
     public function getCategoryTree(string $locale): RestResponseInterface
     {
         $categoryTree = $this->categoryStorageClient->getCategories(
@@ -85,12 +74,6 @@ class CategoryReader implements CategoryReaderInterface
         return $restResponse->addResource($restResource);
     }
 
-    /**
-     * @param string $nodeId
-     * @param string $locale
-     *
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
-     */
     public function getCategoryNode(string $nodeId, string $locale): RestResponseInterface
     {
         $restResponse = $this->restResourceBuilder->createRestResponse();
@@ -103,11 +86,6 @@ class CategoryReader implements CategoryReaderInterface
         return $restResponse->addResource($restResource);
     }
 
-    /**
-     * @param \Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface $restRequest
-     *
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
-     */
     public function readCategoryNode(RestRequestInterface $restRequest): RestResponseInterface
     {
         $nodeId = $restRequest->getResource()->getId();
@@ -118,12 +96,6 @@ class CategoryReader implements CategoryReaderInterface
         return $this->getCategoryNode($nodeId, $restRequest->getMetadata()->getLocale());
     }
 
-    /**
-     * @param int $nodeId
-     * @param string $locale
-     *
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResourceInterface|null
-     */
     public function findCategoryNodeById(int $nodeId, string $locale): ?RestResourceInterface
     {
         $storeName = $this->storeClient->getCurrentStore()->getName();
@@ -158,11 +130,6 @@ class CategoryReader implements CategoryReaderInterface
         return $restResources;
     }
 
-    /**
-     * @param \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface $restResponse
-     *
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
-     */
     protected function createErrorResponse(RestResponseInterface $restResponse): RestResponseInterface
     {
         $restErrorTransfer = (new RestErrorMessageTransfer())
@@ -173,11 +140,6 @@ class CategoryReader implements CategoryReaderInterface
         return $restResponse->addError($restErrorTransfer);
     }
 
-    /**
-     * @param \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface $restResponse
-     *
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
-     */
     protected function createInvalidNodeIdResponse(RestResponseInterface $restResponse): RestResponseInterface
     {
         $restErrorTransfer = (new RestErrorMessageTransfer())
@@ -188,11 +150,6 @@ class CategoryReader implements CategoryReaderInterface
         return $restResponse->addError($restErrorTransfer);
     }
 
-    /**
-     * @param string|null $nodeId
-     *
-     * @return bool
-     */
     protected function isNodeIdValid(?string $nodeId): bool
     {
         if (!$nodeId) {
@@ -204,11 +161,6 @@ class CategoryReader implements CategoryReaderInterface
         return $nodeId === (string)$convertedToInt;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CategoryNodeStorageTransfer $categoryNodeStorageTransfer
-     *
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResourceInterface
-     */
     protected function buildProductCategoryResource(CategoryNodeStorageTransfer $categoryNodeStorageTransfer): RestResourceInterface
     {
         $restCategoryNodesAttributesTransfer = $this->categoryMapper
