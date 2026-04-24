@@ -1,0 +1,123 @@
+resource:
+    name: CategoryNodes
+    shortName: category-nodes
+    description: 'Storefront category nodes'
+
+    provider: Spryker\Glue\CategoriesRestApi\Api\Storefront\Provider\CategoryNodesStorefrontProvider
+
+    paginationEnabled: false
+
+    operations:
+        - type: Get
+          description: 'Retrieve a category node by node id'
+
+    properties:
+        nodeId:
+            type: string
+            identifier: true
+            writable: false
+            readable: true
+            description: 'Category node identifier'
+            openapiContext:
+                example: '5'
+
+        name:
+            type: string
+            writable: false
+            readable: true
+            required: false
+            description: 'Category name'
+            openapiContext:
+                example: 'Cameras & Camcorders'
+
+        metaTitle:
+            type: string
+            writable: false
+            readable: true
+            required: false
+            description: 'SEO meta title'
+            openapiContext:
+                example: 'Cameras & Camcorders'
+
+        metaKeywords:
+            type: string
+            writable: false
+            readable: true
+            required: false
+            description: 'SEO meta keywords'
+            openapiContext:
+                example: 'cameras, camcorders, photo'
+
+        metaDescription:
+            type: string
+            writable: false
+            readable: true
+            required: false
+            description: 'SEO meta description'
+            openapiContext:
+                example: 'Shop cameras and camcorders at great prices.'
+
+        isActive:
+            type: boolean
+            writable: false
+            readable: true
+            required: false
+            description: 'Whether the category is active'
+            openapiContext:
+                example: true
+
+        order:
+            type: integer
+            writable: false
+            readable: true
+            required: false
+            description: 'Sort order position'
+            openapiContext:
+                example: 100
+
+        url:
+            type: string
+            writable: false
+            readable: true
+            required: false
+            description: 'Category page URL'
+            openapiContext:
+                example: '/en/cameras-camcorders'
+
+        children:
+            type: array
+            writable: false
+            readable: true
+            required: false
+            description: 'Child category nodes'
+            openapiContext:
+                example:
+                    - nodeId: '6'
+                      name: 'Digital Cameras'
+                      metaTitle: 'Digital Cameras'
+                      metaKeywords: 'digital cameras'
+                      metaDescription: 'Best digital cameras.'
+                      isActive: true
+                      order: 10
+                      url: '/en/cameras-camcorders/digital-cameras'
+                      children: []
+                      parents: []
+
+        parents:
+            type: array
+            writable: false
+            readable: true
+            required: false
+            description: 'Parent category nodes'
+            openapiContext:
+                example:
+                    - nodeId: '1'
+                      name: 'Electronics'
+                      metaTitle: 'Electronics'
+                      metaKeywords: 'electronics'
+                      metaDescription: 'Electronics catalog.'
+                      isActive: true
+                      order: 1
+                      url: '/en/electronics'
+                      children: []
+                      parents: []

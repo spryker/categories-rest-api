@@ -15,11 +15,13 @@
         "spryker/urls-rest-api-extension": "^1.0.0"
     },
     "require-dev": {
+        "spryker/api-platform": "*",
         "spryker/code-sniffer": "*",
         "spryker/container": "*",
         "spryker/testify": "*"
     },
     "suggest": {
+        "spryker/api-platform": "Required to expose API Platform resources.",
         "spryker/container": "Add this module to use the ContainerInterface."
     },
     "autoload": {
