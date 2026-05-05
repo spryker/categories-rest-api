@@ -1,0 +1,52 @@
+resource:
+    name: CategoryTrees
+    shortName: category-trees
+    description: 'Category tree for the current store and locale'
+
+    provider: Spryker\Glue\CategoriesRestApi\Api\Storefront\Provider\CategoryTreesStorefrontProvider
+
+    paginationEnabled: false
+
+    operations:
+        - type: GetCollection
+          description: 'Retrieve the full category tree'
+
+    properties:
+        categoryTreeId:
+            type: string
+            identifier: true
+            writable: false
+            readable: true
+            required: false
+            description: 'Category tree identifier'
+            openapiContext:
+                example: '0'
+
+        categoryNodesStorage:
+            type: array
+            writable: false
+            readable: true
+            required: false
+            description: 'List of root category nodes with their children'
+            openapiContext:
+                example:
+                    - nodeId: 1
+                      name: 'Computers'
+                      metaTitle: 'Computers'
+                      metaKeywords: 'computers, laptops, desktops'
+                      metaDescription: 'Explore our range of computers'
+                      isActive: true
+                      order: 100
+                      url: '/en/computers'
+                      children:
+                          - nodeId: 6
+                            name: 'Laptops'
+                            metaTitle: 'Laptops'
+                            metaKeywords: 'laptops, notebooks'
+                            metaDescription: 'Best laptops available'
+                            isActive: true
+                            order: 10
+                            url: '/en/computers/laptops'
+                            children: []
+                            parents: []
+                      parents: []

@@ -9,14 +9,32 @@ resource:
 
     operations:
         - type: Get
-          description: 'Retrieve a category node by node id'
+          description: 'Retrieve a specific category node by ID'
+        - type: GetCollection
+          description: 'Not supported — returns 400 when no category node ID is specified'
+
+    includableIn:
+        - resource: Navigations
+          relationshipName: category-nodes
+        - resource: AbstractProducts
+          relationshipName: category-nodes
 
     properties:
-        nodeId:
+        categoryNodeId:
             type: string
             identifier: true
             writable: false
+            readable: false
+            required: false
+            description: 'Category node identifier for routing'
+            openapiContext:
+                example: '5'
+
+        nodeId:
+            type: integer
+            writable: false
             readable: true
+            required: false
             description: 'Category node identifier'
             openapiContext:
                 example: '5'
@@ -28,34 +46,34 @@ resource:
             required: false
             description: 'Category name'
             openapiContext:
-                example: 'Cameras & Camcorders'
+                example: 'Computers'
 
         metaTitle:
             type: string
             writable: false
             readable: true
             required: false
-            description: 'SEO meta title'
+            description: 'Meta title for SEO'
             openapiContext:
-                example: 'Cameras & Camcorders'
+                example: 'Computers'
 
         metaKeywords:
             type: string
             writable: false
             readable: true
             required: false
-            description: 'SEO meta keywords'
+            description: 'Meta keywords for SEO'
             openapiContext:
-                example: 'cameras, camcorders, photo'
+                example: 'computers, laptops, desktops'
 
         metaDescription:
             type: string
             writable: false
             readable: true
             required: false
-            description: 'SEO meta description'
+            description: 'Meta description for SEO'
             openapiContext:
-                example: 'Shop cameras and camcorders at great prices.'
+                example: 'Explore our range of computers'
 
         isActive:
             type: boolean
@@ -80,9 +98,9 @@ resource:
             writable: false
             readable: true
             required: false
-            description: 'Category page URL'
+            description: 'Category URL'
             openapiContext:
-                example: '/en/cameras-camcorders'
+                example: '/en/computers'
 
         children:
             type: array
