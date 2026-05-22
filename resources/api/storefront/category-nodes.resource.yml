@@ -13,12 +13,6 @@ resource:
         - type: GetCollection
           description: 'Not supported — returns 400 when no category node ID is specified'
 
-    includableIn:
-        - resource: Navigations
-          relationshipName: category-nodes
-        - resource: AbstractProducts
-          relationshipName: category-nodes
-
     properties:
         categoryNodeId:
             type: string
