@@ -10,8 +10,24 @@ resource:
     operations:
         - type: Get
           description: 'Retrieve a specific category node by ID'
+          openapiContext:
+              summary: 'Retrieve a category node'
+              description: 'Returns the category node identified by its node id for the current store and locale.'
+              responses:
+                  200:
+                      description: 'Category node returned.'
+                  400:
+                      description: 'Category node id has not been specified or is invalid.'
+                  404:
+                      description: 'Category node not found.'
         - type: GetCollection
           description: 'Not supported — returns 400 when no category node ID is specified'
+          openapiContext:
+              summary: 'List category nodes (always 400)'
+              description: 'Category nodes are addressed by node id; the bare collection URL always returns 400.'
+              responses:
+                  400:
+                      description: 'Category node id has not been specified or is invalid.'
 
     properties:
         categoryNodeId:

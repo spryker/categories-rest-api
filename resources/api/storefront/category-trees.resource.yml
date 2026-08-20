@@ -10,6 +10,12 @@ resource:
     operations:
         - type: GetCollection
           description: 'Retrieve the full category tree'
+          openapiContext:
+              summary: 'Retrieve the category tree'
+              description: 'Returns the root category nodes of the current store and locale, each carrying its children. An unpublished catalogue yields an empty tree rather than an error.'
+              responses:
+                  200:
+                      description: 'Category tree returned.'
 
     properties:
         categoryTreeId:
