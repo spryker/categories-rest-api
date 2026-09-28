@@ -21,6 +21,7 @@ resource:
         categoryTreeId:
             type: string
             identifier: true
+            syntheticIdentifier: true
             writable: false
             readable: true
             required: false
